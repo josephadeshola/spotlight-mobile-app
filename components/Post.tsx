@@ -34,9 +34,9 @@ export default function Post({post}:PostProps){
   const toggleLike = useMutation(api.posts.toggleLike);
   const handleLike = async()=>{
     try {
-      const newisLiked = await toggleLike({postId:post._id as Id<"posts">})
+      const newisLiked = await toggleLike({postId:post._id})
       setIsLiked(newisLiked.liked)
-      setLikeCount((prev) => (newisLiked ? prev + 1: prev - 1))
+      setLikeCount((prev) => (newisLiked.liked ? prev + 1: prev - 1))
       
     } catch (error) {
       console.log("Error toggle like:", error)
