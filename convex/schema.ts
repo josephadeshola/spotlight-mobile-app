@@ -22,7 +22,7 @@ export default defineSchema({
     likes: v.number(),
     comments: v.number(),
   }).index("by_user", ["userId"]),
-  like: defineTable({
+  likes: defineTable({
     userId: v.id("users"),
     postId: v.id("posts"),
   })

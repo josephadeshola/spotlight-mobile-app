@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "@/constants/theme";
 import { useSSO } from "@clerk/clerk-expo";
 import { useRouter } from "expo-router";
+import { Platform } from "react-native";
 
 export default function Login() {
   const { startSSOFlow } = useSSO();
@@ -57,6 +58,7 @@ export default function Login() {
           By continuing, you agree to our Terms and Privacy Policy
         </Text>
       </View>
+      {Platform.OS === "web" && <div id="clerk-captcha" />}
     </View>
   );
 }
